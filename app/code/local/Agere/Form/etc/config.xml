@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Agere_Form>
+			<version>1.0.0</version>
+		</Agere_Form>
+	</modules>
+
+	<frontend>
+		<routers>
+			<agere_form>
+				<use>standard</use>
+				<args>
+					<module>Agere_Form</module>
+					<frontName>form</frontName>
+				</args>
+			</agere_form>
+		</routers>
+	</frontend>
+
+	<global>
+		<helpers>
+			<agere_form>
+				<class>Agere_Form_Helper</class>
+			</agere_form>
+		</helpers>
+		<template>
+			<email>
+				<agere_form_contact_general_email_template translate="label">
+					<label>Contact</label>
+					<file>agere/form/contact_form.html</file>
+					<type>html</type>
+				</agere_form_contact_general_email_template>
+
+			</email>
+		</template>
+	</global>
+
+	<default>
+		<agere_form_contact>
+			<general>
+				<enabled>0</enabled>
+				<recipient_email><![CDATA[hello@example.com]]></recipient_email>
+				<sender_email_identity>general</sender_email_identity>
+				<email_template>agere_form_contact_general_email_template</email_template>
+			</general>
+		</agere_form_contact>
+	</default>
+</config>

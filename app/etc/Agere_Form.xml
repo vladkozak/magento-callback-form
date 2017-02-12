@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Agere_Form>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Agere_Form>
+	</modules>
+</config>

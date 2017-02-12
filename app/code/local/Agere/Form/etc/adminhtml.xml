@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+
+									<agere_form_contact translate="title">
+										<title>Form 1</title>
+									</agere_form_contact>
+									<agere_form translate="title">
+										<title>Settings</title>
+									</agere_form>
+
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

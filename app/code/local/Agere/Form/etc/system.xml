@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<tabs>
+		<agere_form translate="label">
+			<label>Agere Forms</label>
+			<sort_order>195</sort_order>
+		</agere_form>
+	</tabs>
+
+	<sections>
+		<agere_form_contact translate="label">
+			<label>Form</label>
+			<tab>agere_form</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>1</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label">
+					<label>General</label>
+					<sort_order>600</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<recipient_email translate="label">
+							<label>Send Emails To</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</recipient_email>
+						<sender_email_identity translate="label">
+							<label>Email Sender</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_identity</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sender_email_identity>
+						<email_template_1 translate="label">
+							<label>Email Template (Expert Device)</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_template_1>
+						<email_template_2 translate="label">
+							<label>Email Template (Calculate roof)</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_template_2>
+						<email_template_3 translate="label">
+							<label>Email Template (Installation Contract)</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_template_3>
+
+					</fields>
+				</general>
+			</groups>
+		</agere_form_contact>
+
+		<agere_form translate="label">
+			<label>Settings</label>
+			<tab>agere_form</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>3</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label">
+					<label>General</label>
+					<sort_order>600</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<file_extension translate="label">
+							<label>File extensions</label>
+							<frontend_type>text</frontend_type>
+							<comment>Example: doc, docx, rtf, xls, xlsx</comment>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</file_extension>
+						<path_to_temp translate="label">
+							<label>Path to Temp Folder</label>
+							<frontend_type>text</frontend_type>
+							<comment>Example: "/media/temp/"</comment>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</path_to_temp>
+					</fields>
+				</general>
+			</groups>
+		</agere_form>
+
+	</sections>
+</config>

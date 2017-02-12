@@ -1,0 +1,98 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<?php $post = Mage::getSingleton('core/session')->getPostDataCall(); ?>
+<?php $id = Mage::app()->getRequest()->getParam('id'); ?>
+<?php /** @var Agere_Form_Helper_Job $helper */ ?>
+<div id="contact-block" class="widget-litebox">
+    <div class="container-litebox">
+        <div class="main-litebox">
+            <form id="contact-form" method="post" enctype="multipart/form-data" accept-charset="utf-8" action="<?php echo $this->getUrl('form/contact/create') ?>">
+                <input type="hidden" name="cururl" value="<?php echo $this->getUrl('') ?>" />
+                <fieldset class="">
+                    <ul class="form-list">
+                        <li>
+                             <label class="required" for="first_name"><?php echo $this->__('Name') ?><em class="star">*</em></label>
+                            <div class="input-box">
+                                <input type="text" value="<?php if($post['first_name']){echo $post['first_name'];} ?>" class="input-text required-entry" id="first_name" name="first_name" />
+                            </div>
+                        </li>
+                        <li>
+                            <label class="required" for="phone_no"><?php echo $this->__('Telephone') ?><em class="star">*</em></label>
+                            <div class="input-box">
+                                <input type="text" value="<?php if($post['phone_no']){echo $post['phone_no'];} ?>" class="input-text required-entry" id="phone_no" name="phone_no" />
+                            </div>
+                        </li>
+                        <li>
+                            <label for="e-mail"><?php echo $this->__('Email') ?><em class="star">*</em></label>
+                            <div class="input-box">
+                                <input type="text" value="<?php if($post['e-mail']){echo $post['e-mail'];} ?>" class="input-text" id="e-mail" name="e-mail" />
+                            </div>
+                        </li>
+                        <li>
+                            <label for="description"><?php echo $this->__('Comment') ?></label>
+                            <div class="input-box">
+                                <textarea value="" class="input-text textarea" id="description" name="description"><?php if($post['description']){echo $post['description'];} ?></textarea>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="hidden" value="<?= $id ?>" id="contact_id" name="contact_id">
+                        </li>
+                        <div class="upload_document_block clearfix">
+                            <ul>
+                                <li class="first"> <label for="file"><?php echo $this->__('Upload Document:') ?></label></li>
+                                <li> <label for="file"><?php echo $this->__('File extensions: '); echo Mage::getStoreConfig('agere_form/general/file_extension', $this->getStoreId()) ?></label></li>
+                                <input type='file' name='file' id='file'/>
+                            </ul>
+                        </div>
+                        <li></li>
+                        <div class="g-recaptcha" data-sitekey="6LetIBQUAAAAAO-GjasLBImaVpwHtbbbUnFpgs2S"></div>
+                        <li></li>
+                    </ul>
+                </fieldset>
+                <div class="form-button">
+                    <button type="submit" class="button button-blue left" title="<?php echo $this->__('Submit') ?>"><span><?php echo $this->__('Submit') ?></span></button>
+                </div>
+
+            </form>
+        </div>
+        <div class="bottom-litebox">&nbsp;</div>
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var dataForm = new VarienForm('contact-form');
+        Validation.addAllThese([
+            ['validate-one-required', '<?php echo $this->__('According to Ukrainian legislation you have to confirm your agreement to grant wish personal data') ?>', function (v,elm) {
+                var p = elm.parentNode;
+                var options = p.getElementsByTagName('INPUT');
+                if(v == 1){
+                    return true;
+                } else {
+                    return $A(options).any(function(elm) {
+                        alert("<?php echo $this->__('According to Ukrainian legislation you have to confirm your agreement to grant wish personal data') ?>");
+                    });
+                }
+            }]
+        ]);
+
+        function checkValid(id,id_form){
+            window.bad = true;
+            setTimeout(function() {
+                jQuery('#'+id_form).find('.validation-failed').each(function(){
+                    window.bad = false;
+                });
+                if(!window.bad){
+                    jQuery('#'+id).css('display','block');
+                }
+            }, 2000);
+        }
+
+        jQuery(document).ready(function($){
+            $("#phone_no").mask("+38(999)999-99-99");
+            <?php if($script = Mage::getSingleton('core/session')->getPopScript()): ?>
+            <?php echo $script; Mage::getSingleton('core/session')->unsPopScript(); ?>
+            <?php endif; ?>
+
+        });
+        //]]>
+    </script>
+</div>
